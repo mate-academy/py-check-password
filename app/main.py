@@ -15,3 +15,7 @@ def check_password(password: str) -> bool:
         else:
             return False
     return all([has_upper, has_digit, has_special])
+
+
+if __name__ == '__main__':
+    print(check_password('Str-ngs4f'))
