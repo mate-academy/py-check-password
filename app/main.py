@@ -14,4 +14,5 @@ def check_password(password: str) -> bool:
             has_special = True
         else:
             return False
+
     return all([has_upper, has_digit, has_special])
