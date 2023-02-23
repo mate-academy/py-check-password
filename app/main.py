@@ -1,6 +1,12 @@
 def check_password(password: str) -> bool:
     if len(password) not in range(8, 17):
         return False
+
+    import re
+    non_latin_chars = re.findall(r"[^a-zA-Z0-9$@#&!-_]", password)
+    if non_latin_chars:
+        return False
+
     has_upper = False
     has_digit = False
     has_special = False
