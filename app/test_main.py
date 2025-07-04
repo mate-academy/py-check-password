@@ -9,7 +9,7 @@ import pytest
         ("qwerty", False),
         ("Str@ng", False),
         ("Pass@word1Pass@wo", False),
-        ("Pas@", False),
+        ("Pas@1", False),
         ("asdfg6@id", False),
         ("Qwerty@Kq", False),
         ("Password1", False),
