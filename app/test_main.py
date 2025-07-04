@@ -14,7 +14,7 @@ import pytest
         ("Qwerty@Kq", False),
         ("Password1", False),
         ("Str@nq", False),
-        ("dDdfg6qid", False)
+        ("dDqfg6qid", False)
 
 
     ]
