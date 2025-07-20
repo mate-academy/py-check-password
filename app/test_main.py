@@ -1,7 +1,7 @@
-import unittest
 import pytest
 
 from app.main import check_password
+
 
 @pytest.mark.parametrize(
     "input_, output",
@@ -16,5 +16,5 @@ from app.main import check_password
         ("Abc@dfgerg", False)
     ]
 )
-def test_main_func(input_, output):
+def test_main_func(input_: str, output: bool) -> None:
     assert check_password(input_) == output
