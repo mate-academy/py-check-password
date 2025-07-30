@@ -7,7 +7,7 @@ from app.main import check_password
     "password,result",
     [
         pytest.param("Pass@word1", True,
-                     id="contains at least 1 digit, 1 special character, 1 uppercase letter"),
+                     id="valid password"),
         pytest.param("sqwer@2ty", False,
                      id="should contains at least 1 uppercase letter"),
         pytest.param("Str@ng7", False,
