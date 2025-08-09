@@ -12,7 +12,7 @@ def test_password_without_digits() -> None:
 
 
 def test_should_check_upper_letter() -> None:
-    password_test = "pass@word"
+    password_test = "pass@word1"
     assert check_password(password_test) is False
 
 
