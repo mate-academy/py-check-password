@@ -15,7 +15,7 @@ def check_password(password: str) -> bool:
                 return False
         elif letter.isdigit():
             has_digit = True
-        elif letter in "$@#&!-_":
+        elif letter in "$@#&!-_;":
             has_special = True
         else:
             return False
