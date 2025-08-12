@@ -1,42 +1,49 @@
 from app.main import check_password
 
-# ✅ Валідні паролі
-def test_valid_password_min_length():
-    assert check_password("A1@bcdef") == True  # рівно 8 символів
 
-def test_valid_password_max_length():
-    assert check_password("Abcdefghij1@KLMN") == True  # рівно 16 символів
+def test_valid_password_min_length() -> None:
+    assert check_password("A1@bcdef")
 
-def test_valid_password_with_all_requirements():
-    assert check_password("Pass@word1") == True
 
-# ❌ Невалідні паролі — довжина
-def test_too_short_password():
-    assert check_password("A1@bcde") == False  # 7 символів
+def test_valid_password_max_length() -> None:
+    assert check_password("Abcdefghij1@KLMN")
 
-def test_too_long_password():
-    assert check_password("Abcdefghij1@KLMNO") == False  # 17 символів
 
-# ❌ Невалідні паролі — відсутні компоненти
-def test_missing_uppercase():
-    assert check_password("password1@") == False  # немає великої літери
+def test_valid_password_with_all_requirements() -> None:
+    assert check_password("Pass@word1")
 
-def test_missing_digit():
-    assert check_password("Password@") == False  # немає цифри
 
-def test_missing_special_symbol():
-    assert check_password("Password1") == False  # немає спецсимвола
+def test_too_short_password() -> None:
+    assert not check_password("A1@bcde")  # 7 символів
 
-# ❌ Невалідні паролі — недозволені символи
-def test_invalid_character():
-    assert check_password("Password1%") == False  # '!' не входить у список дозволених
 
-def test_invalid_unicode():
-    assert check_password("Пароль1@") == False  # кирилиця
+def test_too_long_password() -> None:
+    assert not check_password("Abcdefghij1@KLMNO")  # 17 символів
 
-def test_invalid_space():
-    assert check_password("Pass word1@") == False  # пробіл
 
-# ❌ Невалідні паролі — порожній рядок
-def test_empty_password():
-    assert check_password("") == False
+def test_missing_uppercase() -> None:
+    assert not check_password("password1@")
+
+
+def test_missing_digit() -> None:
+    assert not check_password("Password@")
+
+
+def test_missing_special_symbol() -> None:
+    assert not check_password("Password1")
+
+
+def test_invalid_character() -> None:
+    assert not check_password("Password1%")  # '%' не дозволений
+
+
+def test_invalid_unicode() -> None:
+    assert not check_password("Пароль1@")  # кирилиця
+
+
+def test_invalid_space() -> None:
+    assert not check_password("Pass word1@")  # пробіл
+
+
+def test_empty_password() -> None:
+    assert not check_password("")
