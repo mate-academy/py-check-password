@@ -9,7 +9,7 @@ from app.main import check_password
         ["QWEruUip", False],
         ["qwertyuo!@#123", False],
         ["1Qq!", False],
-        ["NBVCXZ123!", False],
+        ["NBZ123RR!T", True],
         ["k123", False],
         ["Pass@word1", True],
         ["Pass@word12345678", False]
