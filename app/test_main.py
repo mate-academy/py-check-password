@@ -6,7 +6,8 @@ from app.main import check_password
     "password,expected",
     [
         ["123Qwer@ty456", True],
-        ["QWEruUip", False],
+        ["QWEruUip1", False],
+        ["QWEruUip!", False],
         ["qwertyuo!@#123", False],
         ["1Qq!", False],
         ["NBZ123RR!T", True],
