@@ -10,7 +10,7 @@ from app.main import check_password
         ("кирилиця", False),
         ("Pass@word1", True),
         ("qwerty", False),
-        ("Str@ng", False),
+        ("Str@ng1", False),
         ("Pass@word1Pass@word1Pass@word1", False),
         ("Password@", False),
         ("Password1", False),
