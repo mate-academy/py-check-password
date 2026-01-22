@@ -1,7 +1,9 @@
 import pytest
 
 from app import main
+from pathlib import Path
 
+TEST_MAIN = Path(__file__).parent.parent / "app" / "test_main.py"
 
 def test_should_check_min_length(monkeypatch):
     def check_without_min_length(password: str) -> bool:
@@ -24,7 +26,7 @@ def test_should_check_min_length(monkeypatch):
 
     monkeypatch.setattr(main, "check_password", check_without_min_length)
 
-    test_result = pytest.main(["app/test_main.py"])
+    test_result = pytest.main([str(TEST_MAIN)])
     assert (
         test_result.value == 1
     ), "Tests should check that 'check_password' returns False for short passwords"
@@ -51,7 +53,7 @@ def test_should_check_max_length(monkeypatch):
 
     monkeypatch.setattr(main, "check_password", check_without_max_length)
 
-    test_result = pytest.main(["app/test_main.py"])
+    test_result = pytest.main([str(TEST_MAIN)])
     assert (
         test_result.value == 1
     ), "Tests should check that 'check_password' returns False for too long passwords"
@@ -76,7 +78,7 @@ def test_should_check_upper_letter(monkeypatch):
 
     monkeypatch.setattr(main, "check_password", check_without_upper_letter_condition)
 
-    test_result = pytest.main(["app/test_main.py"])
+    test_result = pytest.main([str(TEST_MAIN)])
     assert (
         test_result.value == 1
     ), "Tests should check that 'check_password' returns False for passwords without uppercase letter"
@@ -102,7 +104,7 @@ def test_should_check_digit(monkeypatch):
 
     monkeypatch.setattr(main, "check_password", check_without_digit_condition)
 
-    test_result = pytest.main(["app/test_main.py"])
+    test_result = pytest.main([str(TEST_MAIN)])
     assert (
         test_result.value == 1
     ), "Tests should check that 'check_password' returns False for passwords without digits"
@@ -129,7 +131,7 @@ def test_should_check_special_symbols(monkeypatch):
 
     monkeypatch.setattr(main, "check_password", check_without_special_symbols)
 
-    test_result = pytest.main(["app/test_main.py"])
+    test_result = pytest.main([str(TEST_MAIN)])
     assert (
         test_result.value == 1
     ), "Tests should check that 'check_password' returns False for passwords without special symbols"
