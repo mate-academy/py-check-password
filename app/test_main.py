@@ -43,3 +43,8 @@ def test_check_password(password: str, expected: str) -> None:
 
 def test_password_too_short() -> None:
     assert check_password("A1@a") is False
+
+
+def test_password_too_long() -> None:
+    password = "Password@1" + "a" * 10
+    assert check_password(password) is False
