@@ -2,6 +2,8 @@ from string import ascii_lowercase
 
 
 def check_password(password: str) -> bool:
+    if not isinstance(password, str):
+        raise TypeError
     if len(password) not in range(8, 17):
         return False
     has_upper = False
