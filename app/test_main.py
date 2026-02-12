@@ -9,9 +9,10 @@ from app.main import check_password
         ("Pass@word1", True),
         ("qwerty", False),
         ("Str@ng1", False),
-        ("sdfpjasdfjlxkljboijawer", False),
+        ("Pass@word1asdfzxcvmkl", False),
         ("asdrfvcxzbnh", False),
         ("Pass@word", False),
+        ("Password1", False),
         ("pass@word1", False),
     ]
 )
