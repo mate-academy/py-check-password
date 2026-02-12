@@ -11,6 +11,8 @@ from app.main import check_password
         ("Str@ng1", False),
         ("sdfpjasdfjlxkljboijawer", False),
         ("asdrfvcxzbnh", False),
+        ("Pass@word", False),
+        ("pass@word1", False),
     ]
 )
 def test_check_password(password: str, expected_result: bool) -> None:
