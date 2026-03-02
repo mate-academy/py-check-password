@@ -13,27 +13,27 @@ from app.main import check_password
     "Test1234_",
     "A1@bcdefghijklmn"
 ])
-def test_valid_passwords(password):
+def test_valid_passwords(password: str) -> None:
     assert check_password(password) is True
 
 
-def test_too_short():
+def test_too_short() -> None:
     assert check_password("A1@aaaa") is False
 
 
-def test_too_long():
+def test_too_long() -> None:
     assert check_password("A1@abcdefghijklmnop") is False
 
 
-def test_missing_digit():
+def test_missing_digit() -> None:
     assert check_password("Password@") is False
 
 
-def test_missing_special_char():
+def test_missing_special_char() -> None:
     assert check_password("Password1") is False
 
 
-def test_missing_uppercase():
+def test_missing_uppercase() -> None:
     assert check_password("password1@") is False
 
 
@@ -43,25 +43,25 @@ def test_missing_uppercase():
     "Пароль1@",
     "Password1 @"
 ])
-def test_invalid_characters(password):
+def test_invalid_characters(password: str) -> None:
     assert check_password(password) is False
 
 
-def test_exact_min_length():
+def test_exact_min_length() -> None:
     assert check_password("A1@aaaaa") is True
 
 
-def test_exact_max_length():
+def test_exact_max_length() -> None:
     assert check_password("A1@abcdefghijklm") is True
 
 
-def test_empty_string():
+def test_empty_string() -> None:
     assert check_password("") is False
 
 
-def test_only_required_minimum_types_but_short():
+def test_only_required_minimum_types_but_short() -> None:
     assert check_password("A1@a") is False
 
 
-def test_only_letters_and_digits():
+def test_only_letters_and_digits() -> None:
     assert check_password("Password123") is False
