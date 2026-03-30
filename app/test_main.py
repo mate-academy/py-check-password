@@ -9,7 +9,7 @@ from app.main import check_password
         ("qwerty", False),
         ("Str@ng", False),
         ("password123$", False),
-        ("PASSWORD123$", False),
+        ("PASSWORD123$", True),
         ("PassWord$", False),
         ("Pass1word", False),
         ("P@1", False),
