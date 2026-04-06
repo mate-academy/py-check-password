@@ -22,5 +22,5 @@ from app.main import check_password
     ("Top1top!", True),
     ("Boo123#", False),
 ])
-def test_check_password(password, is_valid):
+def test_check_password(password: str, is_valid: bool) -> None:
     assert check_password(password) == is_valid
