@@ -11,10 +11,12 @@ from app.main import check_password
         ("", False),
         ("1", False),
         ("pass@word1", False),
-        ("pass@word3333333333333312ergergergergterg54t3453453tg3gr3rg", False),
         ("Pass@word", False),
-        ("Pass@", False),
         ("Password1", False),
+        ("Pass@1", False),
+        ("Passw@r1", True),
+        ("Passwordd123@AA", True),
+        ("Passworddd123@AA", False)
     ]
 )
 def test_check_password(password: str, is_valid: bool) -> None:
