@@ -11,9 +11,9 @@ Rules for the valid password:
 - accepts only letters of the Latin alphabet Aa-Zz, digits 0-9
 or special character from `$@#&!-_`;
 - at least 8 characters;
-- maximum 16 characters inclusive;
+- ;
 - contains at least 1 digit, 1 special character, 1 uppercase letter.
-
+maximum 16 characters inclusive
 Examples:
 ```python
 check_password('Pass@word1') is True
