@@ -15,6 +15,6 @@ from app.main import check_password
     ]
 )
 def test_check_password_works_correctly(
-    password, result
-):
+    password: str, result: bool
+) -> None:
     assert check_password(password) == result
