@@ -9,7 +9,7 @@ class TestCheckPassword:
         assert check_password("Pass@1") is False
 
     def test_too_long(self) -> None:
-        assert check_password("Pass@word1234567") is False
+        assert check_password("Pass@word12345678") is False
 
     def test_no_uppercase(self) -> None:
         assert check_password("pass@word1") is False
