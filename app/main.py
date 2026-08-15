@@ -2,7 +2,7 @@ from string import ascii_lowercase
 
 
 def check_password(password: str) -> bool:
-    if len(password) not in range(8, 17):
+    if len(password) not in range(8, 17):  # This includes 16
         return False
     has_upper = False
     has_digit = False
