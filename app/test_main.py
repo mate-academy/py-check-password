@@ -12,5 +12,5 @@ from app.main import check_password
     ("SleePPassworD1", False),
     ("11111_1111111", False),
 ])
-def test_passwords(password, returned_value):
+def test_passwords(password: str, returned_value: bool) -> None:
     assert check_password(password) == returned_value
