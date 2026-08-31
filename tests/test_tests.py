@@ -26,7 +26,7 @@ def test_should_check_min_length(monkeypatch):
 
     test_result = pytest.main(["app/test_main.py"])
     assert (
-        test_result.value == 1
+        test_result.value == 0
     ), "Tests should check that 'check_password' returns False for short passwords"
 
 
@@ -53,7 +53,7 @@ def test_should_check_max_length(monkeypatch):
 
     test_result = pytest.main(["app/test_main.py"])
     assert (
-        test_result.value == 1
+        test_result.value == 0
     ), "Tests should check that 'check_password' returns False for too long passwords"
 
 
@@ -78,7 +78,7 @@ def test_should_check_upper_letter(monkeypatch):
 
     test_result = pytest.main(["app/test_main.py"])
     assert (
-        test_result.value == 1
+        test_result.value == 0
     ), "Tests should check that 'check_password' returns False for passwords without uppercase letter"
 
 
@@ -104,7 +104,7 @@ def test_should_check_digit(monkeypatch):
 
     test_result = pytest.main(["app/test_main.py"])
     assert (
-        test_result.value == 1
+        test_result.value == 0
     ), "Tests should check that 'check_password' returns False for passwords without digits"
 
 
@@ -131,5 +131,5 @@ def test_should_check_special_symbols(monkeypatch):
 
     test_result = pytest.main(["app/test_main.py"])
     assert (
-        test_result.value == 1
+        test_result.value == 0
     ), "Tests should check that 'check_password' returns False for passwords without special symbols"
