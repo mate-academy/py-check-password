@@ -18,7 +18,7 @@ from app.main import check_password
         "Abcdefg1#",
     ],
 )
-def test_valid_passwords(password):
+def test_valid_passwords(password: str) -> None:
     assert check_password(password) is True
 
 
@@ -37,11 +37,11 @@ def test_valid_passwords(password):
         "Abcdef١@",  # non-ASCII digit
     ],
 )
-def test_invalid_passwords(password):
+def test_invalid_passwords(password: str) -> None:
     assert check_password(password) is False
 
 
-def test_password_length_boundaries_are_inclusive():
+def test_password_length_boundaries_are_inclusive() -> None:
     assert check_password("A1@bcde") is False
     assert check_password("Abcdefg1$") is True
     assert check_password("Abcdefghijk1$xyz") is True
