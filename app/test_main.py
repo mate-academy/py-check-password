@@ -16,7 +16,7 @@ import pytest
         ("Pass@word123456", True),
     ],
     ids=[
-        "valid password",
+        "valid all required password",
         "too short",
         "too long",
         "without digit",
