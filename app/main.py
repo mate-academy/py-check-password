@@ -1,4 +1,4 @@
-from string import ascii_lowercase
+from string import ascii_lowercase, digits
 
 
 def check_password(password: str) -> bool:
@@ -14,6 +14,8 @@ def check_password(password: str) -> bool:
             if letter.lower() not in ascii_lowercase:
                 return False
         elif letter.isdigit():
+            if letter not in digits:
+                return False
             has_digit = True
         elif letter in "$@#&!-_":
             has_special = True
