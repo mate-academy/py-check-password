@@ -1,53 +1,37 @@
-import datetime
-from unittest.mock import MagicMock, patch
 from app import main
 
-real_date = datetime.date
+
+def test_valid_password() -> None:
+    assert main.check_password("Pass@word1") is True
 
 
-@patch("app.main.datetime.date")
-def test_outdated_products_filters_correctly(mock_date: MagicMock) -> None:
-    mock_date.today.return_value = real_date(2022, 2, 2)
-    mock_date.side_effect = lambda y, m, d: real_date(y, m, d)
-
-    products = [
-        {
-            "name": "salmon",
-            "expiration_date": real_date(2022, 2, 10),
-            "price": 600,
-        },
-        {
-            "name": "chicken",
-            "expiration_date": real_date(2022, 2, 5),
-            "price": 120,
-        },
-        {
-            "name": "duck",
-            "expiration_date": real_date(2022, 2, 1),
-            "price": 160,
-        },
-    ]
-
-    assert main.outdated_products(products) == ["duck"]
+def test_password_too_short() -> None:
+    assert main.check_password("Pas@wd1") is False
 
 
-@patch("app.main.datetime.date")
-def test_product_expires_today_not_outdated(mock_date: MagicMock) -> None:
-    mock_date.today.return_value = real_date(2022, 2, 2)
-    mock_date.side_effect = lambda y, m, d: real_date(y, m, d)
-
-    products = [
-        {
-            "name": "milk",
-            "expiration_date": real_date(2022, 2, 2),
-            "price": 50,
-        }
-    ]
-
-    assert main.outdated_products(products) == []
+def test_password_too_long() -> None:
+    assert main.check_password("Password@123456789") is False
 
 
-@patch("app.main.datetime.date")
-def test_outdated_products_empty_list(mock_date: MagicMock) -> None:
-    mock_date.today.return_value = real_date(2022, 2, 2)
-    assert main.outdated_products([]) == []
+def test_password_missing_uppercase() -> None:
+    assert main.check_password("password@1") is False
+
+
+def test_password_missing_digit() -> None:
+    assert main.check_password("Password@") is False
+
+
+def test_password_missing_special_char() -> None:
+    assert main.check_password("Password123") is False
+
+
+def test_password_invalid_characters() -> None:
+    assert main.check_password("Pass@word1%") is False
+
+
+def test_password_boundary_min_length() -> None:
+    assert main.check_password("P@ssw0rd") is True
+
+
+def test_password_boundary_max_length() -> None:
+    assert main.check_password("P@ssw0rd12345678") is True
